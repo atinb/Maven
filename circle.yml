@@ -2,5 +2,7 @@ test:
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
     - find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;  
-    - mkdir -p $CIRCLE_ARTIFACTS/Cobertura/
-    - find . -type f -regex ".*/.*html" -exec cp {} $CIRCLE_ARTIFACTS/Cobertura/ \;
+    - mkdir -p $CIRCLE_ARTIFACTS/Jacoco/
+    - find . -type f -regex ".*/.*html" -exec cp {} $CIRCLE_ARTIFACTS/Jacoco/ \;
+    - mkdir -p $CIRCLE_ARTIFACTS/Jacoco/.resources
+    - find . -type f -regex ".*/.resources/*.*" -exec cp {} $CIRCLE_ARTIFACTS/Jacoco/.resources/ \;
