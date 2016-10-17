@@ -3,7 +3,9 @@ test:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
     - find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;  
     - mkdir -p $CIRCLE_ARTIFACTS/Jacoco/
-    - find . -type f -regex ".*/.*html" -exec cp {} $CIRCLE_ARTIFACTS/Jacoco/ \;
+    - find . -type f -regex ".*/index.html" -exec cp {} $CIRCLE_ARTIFACTS/Jacoco/ \;
+    - mkdir -p $CIRCLE_ARTIFACTS/Jacoco/default/
+    - find . -type f -regex ".*/default/.*html" -exec cp {} $CIRCLE_ARTIFACTS/Jacoco/default/ \;
     - mkdir -p $CIRCLE_ARTIFACTS/Jacoco/.resources
     - find . -type f -regex ".*/.resources/.*css" -exec cp {} $CIRCLE_ARTIFACTS/Jacoco/.resources/ \;
     - find . -type f -regex ".*/.resources/.*gif" -exec cp {} $CIRCLE_ARTIFACTS/Jacoco/.resources/ \;
